@@ -29,7 +29,7 @@ let foods = new ProductDB();
 foods.add("ポッキー", 280);
 foods.add("きのこの山", 190);
 foods.add("たけのこの里", 190);
-foods.add("たけのこの丘", 190);
+// foods.add("たけのこの丘", 190);
 //初期データ挿入
   //何もなし（全データ表示）
   app.get('/', (req, res) => {
