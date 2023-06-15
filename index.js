@@ -34,7 +34,7 @@ foods.add("たけのこの里", 190);
   app.get('/', (req, res) => {
     res.contentType('json');
     res.header('Access-Control-Allow-Origin', '*');
-    res.send({ err: "", result: foods.products.length, data: foods });
+    res.send({ err: "", result: foods.products.length, data: foods.products });
   });
   
   app.get('/request', (req, res) => {
@@ -55,12 +55,12 @@ foods.add("たけのこの里", 190);
     });
     if(req.query.cmd == "all"){
       result.result = foods.products.length
-      result.data = foods
+      result.data = foods.products
       }
     if(req.query.cmd != "all" && req.query.cmd != "search"){
       //allかsearch以外のコマンドが指定されt場合はエラーを返す
       result.err = "this command can not use";
-      result = { err: "", result: foods.products.length, data: foods }
+      result = { err: "", result: foods.products.length, data: foods.products }
     }
     res.send(result);
   });
@@ -73,7 +73,7 @@ foods.add("たけのこの里", 190);
     }else{
       foods.add(req.query.name,req.query.price)
       //追加後全表示
-      result = { err: "", result: foods.products.length, data: foods }
+      result = { err: "", result: foods.products.length, data: foods.products }
     }
     res.send(result);
   });
